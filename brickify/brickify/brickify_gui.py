@@ -1,23 +1,23 @@
 import os
-import legofy
+import brickify
 import tkinter as tk
 import tkinter.ttk as ttk
 from tkinter import filedialog
 import tkinter.messagebox as tkmsg
 
-LEGO_PALETTE = ('none', 'solid', 'transparent', 'effects', 'mono', 'all', )
+BRICK_PALETTE = ('none', 'solid', 'transparent', 'effects', 'mono', 'all', )
 
-class LegofyGui(tk.Tk):
+class BrickifyGui(tk.Tk):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.wm_title("Legofy!")
+        self.wm_title("Brickify!")
         self.iconbitmap(os.path.dirname(os.path.realpath(__file__)) + '/assets/brick.ico')
         self.resizable(False, False)
-        self.body = LegofyGuiMainFrame(self)
+        self.body = BrickifyGuiMainFrame(self)
         self.body.grid(row=0, column=0, padx=10, pady=10)
 
 
-class LegofyGuiMainFrame(tk.Frame):
+class BrickifyGuiMainFrame(tk.Frame):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -38,7 +38,7 @@ class LegofyGuiMainFrame(tk.Frame):
         self.colorPaletteLabel.grid(row=0, column=0 )
 
         self.colorPalette = ttk.Combobox(self.groupFrame)
-        self.colorPalette['values'] = LEGO_PALETTE
+        self.colorPalette['values'] = BRICK_PALETTE
         self.colorPalette.current(0)
         self.colorPalette.grid(row=0, column=1)
 
@@ -46,7 +46,7 @@ class LegofyGuiMainFrame(tk.Frame):
         self.brickNumberScale.set(30)
         self.brickNumberScale.grid(row=1, column=0, columnspan=2, )
 
-        self.convertFile = tk.Button(text="Legofy this image!", command=self.convert_file)
+        self.convertFile = tk.Button(text="Brickify this image!", command=self.convert_file)
         self.convertFile.grid(row=2, column=0, columnspan=2)
 
 
@@ -73,19 +73,19 @@ class LegofyGuiMainFrame(tk.Frame):
 
                 palette = self.colorPalette.get()
 
-                if palette in LEGO_PALETTE and palette != 'none':
-                    legofy.main(self.chosenFile.name, size=self.brickNumberScale.get(), palette_mode=palette)
+                if palette in BRICK_PALETTE and palette != 'none':
+                    brickify.main(self.chosenFile.name, size=self.brickNumberScale.get(), palette_mode=palette)
                 else:
-                    legofy.main(self.chosenFile.name, size=self.brickNumberScale.get())
+                    brickify.main(self.chosenFile.name, size=self.brickNumberScale.get())
 
-                tkmsg.showinfo("Success!", "Your image has been legofied!")
+                tkmsg.showinfo("Success!", "Your image has been brickified!")
             else:
-                tkmsg.showerror("File not found", "Please select a file before legofying")
+                tkmsg.showerror("File not found", "Please select a file before brickifying")
         except Exception as e:
             tkmsg.showerror("Error", str(e))
 
 
 
 if __name__ == '__main__':
-    app = LegofyGui()
+    app = BrickifyGui()
     app.mainloop()

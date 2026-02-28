@@ -3,26 +3,26 @@
 from setuptools import setup
 
 setup(
-    name="legofy",
+    name="brickify",
     version="1.0.0",
-    author="Juan Potato",
-    author_email="juanpotatodev@gmail.com",
-    url="https://github.com/JuanPotato/Legofy",
-    description="Make images look as if they are made out of 1x1 LEGO blocks",
-    long_description=("Legofy is a python program that takes a static image or"
+    author="René Slowenski",
+    author_email="rene@slowenski.de",
+    url="https://github.com/rene-slowenski/brickify",
+    description="Make images look as if they are made out of 1x1 interlocking bricks",
+    long_description=("Brickify is a python program that takes a static image or"
                       " gif and makes it so that it looks as if it was built "
-                      "out of LEGO."),
+                      "out of interlocking bricks."),
     classifiers=[
         'Development Status :: 4 - Beta',
         'Programming Language :: Python',
     ],
     license="MIT",
-    packages=['legofy'],
+    packages=['brickify'],
     install_requires=['pillow', 'click'],
     include_package_data=True,
     entry_points={
         'console_scripts': [
-            'legofy = legofy.cli:main',
+            'brickify = brickify.cli:main',
         ],
     },
     package_data={

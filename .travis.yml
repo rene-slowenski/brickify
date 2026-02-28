@@ -20,10 +20,10 @@ install:
   - pip install --quiet coveralls
 
 script:
-  - nosetests --with-coverage --cover-package=legofy
+  - nosetests --with-coverage --cover-package=brickify
   - python setup.py install
-  - legofy legofy/assets/flower.jpg flower_lego.png
-  - legofy --palette all legofy/assets/flower.jpg flower_lego_all.png
+  - brickify brickify/assets/flower.jpg flower_brick.png
+  - brickify --palette all brickify/assets/flower.jpg flower_brick_all.png
 
 after_success:
   - coveralls

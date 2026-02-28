@@ -1,24 +1,24 @@
 # -*- coding: utf-8 -*-
 
 """
-legofy.palettes
+brickify.palettes
 ---------------
 
-This module contains the `lego` palette mappings.
+This module contains the `bricks` palette mappings.
 
 Color mapping source;
  - http://www.brickjournal.com/files/PDFs/2010LEGOcolorpalette.pdf
 
 
     USAGE:
-    $ legofy.palettes.legos
+    $ brickify.palettes.bricks
 
 See README for project details.
 """
 from __future__ import division
 
 
-LEGOS = {
+BRICKS = {
     'solid': {
         '024': [0xfe, 0xc4, 0x01],
         '106': [0xe7, 0x64, 0x19],
@@ -95,9 +95,9 @@ def extend_palette(palette, colors=256, rgb=3):
     return palette[:colors*rgb]
 
 
-def legos():
-    """Build flattened lego palettes."""
-    return _flatten_palettes(LEGOS.copy())
+def bricks():
+    """Build flattened brick palettes."""
+    return _flatten_palettes(BRICKS.copy())
 
 
 def _flatten_palettes(palettes):
