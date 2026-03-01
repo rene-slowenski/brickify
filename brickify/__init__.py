@@ -4,12 +4,7 @@ from PIL import Image, ImageSequence
 import sys
 import os
 
-# Python 2 and 3 support
-# TODO: Proper images2gif version that supports both Py 2 and Py 3 (mostly handling binary data)
-if sys.version_info < (3,):
-    import brickify.images2gif_py2 as images2gif
-else:
-    import brickify.images2gif_py3 as images2gif
+from brickify import images2gif
 from brickify import palettes
 
 
