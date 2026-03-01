@@ -34,25 +34,25 @@ def overlay_effect(color, overlay):
         return overlay - 133 + color
 
 
-def make_brick_image(thumbnail_image, brick_image):
-    """Create a brick version of an image from an image"""
+def make_brickified_image(thumbnail_image, brick_image):
+    """Create a brickified version of an image from an image"""
     base_width, base_height = thumbnail_image.size
     brick_width, brick_height = brick_image.size
 
     rgb_image = thumbnail_image.convert("RGB")
 
-    brick_image = Image.new(
+    brickified_image = Image.new(
         "RGB", (base_width * brick_width, base_height * brick_height), "white"
     )
 
     for brick_x in range(base_width):
         for brick_y in range(base_height):
             color = rgb_image.getpixel((brick_x, brick_y))
-            brick_image.paste(
+            brickified_image.paste(
                 apply_color_overlay(brick_image, color),
                 (brick_x * brick_width, brick_y * brick_height),
             )
-    return brick_image
+    return brickified_image
 
 
 def get_new_filename(file_path, ext_override=None):
@@ -127,7 +127,7 @@ def brickify_gif(base_image, brick_image, output_path, size, palette_mode, dithe
         if palette_mode:
             palette = get_brick_palette(palette_mode)
             frame = apply_thumbnail_effects(frame, palette, dither)
-        new_frame = make_brick_image(frame, brick_image)
+        new_frame = make_brickified_image(frame, brick_image)
         frames_converted.append(new_frame)
 
     # Make use of images to gif function
@@ -148,7 +148,7 @@ def brickify_image(base_image, brick_image, output_path, size, palette_mode, dit
     if palette_mode:
         palette = get_brick_palette(palette_mode)
         base_image = apply_thumbnail_effects(base_image, palette, dither)
-    make_brick_image(base_image, brick_image).save(output_path)
+    make_brickified_image(base_image, brick_image).save(output_path)
 
 
 def main(image_path, output_path=None, size=None, palette_mode=None, dither=False):
