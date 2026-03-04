@@ -676,7 +676,7 @@ class NeuQuant:
     should best be a power of two.
 
     See also:
-    http://members.ozemail.com.au/~dekker/NEUQUANT.HTML
+    https://github.com/timoxley/neuquant
 
     License of the NeuQuant Neural-Net Quantization Algorithm
     ---------------------------------------------------------
@@ -688,7 +688,6 @@ class NeuQuant:
     See "Kohonen neural networks for optimal colour quantization"
     in "network: Computation in Neural Systems" Vol. 5 (1994) pp 351-367.
     for a discussion of the algorithm.
-    See also  http://members.ozemail.com.au/~dekker/NEUQUANT.HTML
 
     Any party obtaining a copy of these files from the author, directly or
     indirectly, is granted, free of charge, a full and unrestricted irrevocable,

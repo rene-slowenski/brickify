@@ -6,10 +6,6 @@ brickify.palettes
 
 This module contains the brick palette mappings.
 
-Color mapping source;
- - http://www.brickjournal.com/files/PDFs/2010LEGOcolorpalette.pdf
-
-
     USAGE:
     $ brickify.palettes.bricks
 
