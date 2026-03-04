@@ -4,7 +4,6 @@ from PIL import Image, ImageSequence
 import sys
 import os
 
-from brickify import images2gif
 from brickify import palettes
 
 
@@ -104,14 +103,19 @@ def apply_thumbnail_effects(image, palette, dither):
 
 
 def brickify_gif(base_image, brick_image, output_path, size, palette_mode, dither):
-    """Alternative function that brickifies animated gifs, makes use of images2gif - uses numpy!"""
+    """Brickify an animated gif"""
     im = base_image
 
-    # Read original image duration
-    original_duration = im.info["duration"]
-
-    # Split image into single frames
-    frames = [frame.copy() for frame in ImageSequence.Iterator(im)]
+    # Split image into single frames and collect their durations
+    frames = []
+    durations = []
+    try:
+        for i in range(im.n_frames):
+            im.seek(i)
+            frames.append(im.copy())
+            durations.append(im.info.get("duration", 100))
+    except (EOFError, AttributeError):
+        pass
 
     # Create container for converted images
     frames_converted = []
@@ -130,14 +134,15 @@ def brickify_gif(base_image, brick_image, output_path, size, palette_mode, dithe
         new_frame = make_brickified_image(frame, brick_image)
         frames_converted.append(new_frame)
 
-    # Make use of images to gif function
-    images2gif.writeGif(
-        output_path,
-        frames_converted,
-        duration=original_duration / 1000.0,
-        dither=0,
-        subRectangles=False,
-    )
+    # Save as animated GIF using PIL directly
+    if frames_converted:
+        frames_converted[0].save(
+            output_path,
+            save_all=True,
+            append_images=frames_converted[1:],
+            duration=durations,
+            loop=0,
+        )
 
 
 def brickify_image(base_image, brick_image, output_path, size, palette_mode, dither):

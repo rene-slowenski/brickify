@@ -1,5 +1,4 @@
 [report]
 omit =
-    brickify/images2gif.py
     brickify/cli.py
     brickify/brickify_gui.py

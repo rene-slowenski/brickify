@@ -1,2 +1,1 @@
 recursive-include brickify/assets/bricks *.png
-include brickify/images2gif.py
