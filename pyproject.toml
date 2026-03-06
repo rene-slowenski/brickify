@@ -18,8 +18,8 @@ classifiers = [
     "Programming Language :: Python",
 ]
 dependencies = [
-    "pillow",
-    "click",
+    "pillow>=10.0.0",
+    "click>=8.0",
 ]
 
 [project.scripts]
