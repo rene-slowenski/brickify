@@ -19,8 +19,7 @@ This project is a fork of [Legofy](https://github.com/JuanPotato/Legofy).
 install from source
 ```shell
 $ git clone https://github.com/rene-slowenski/brickify.git
-$ cd brickify
-$ python setup.py install --user
+$ brickify/install
 ```
 
 ### Usage

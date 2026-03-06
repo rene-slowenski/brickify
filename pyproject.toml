@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "brickify"
+version = "1.0.0"
+authors = [
+    {name = "René Slowenski", email = "rene@slowenski.de"},
+]
+description = "Make images look as if they are made out of 1x1 interlocking bricks"
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.6"
+urls = {Homepage = "https://github.com/rene-slowenski/brickify"}
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Programming Language :: Python",
+]
+dependencies = [
+    "pillow",
+    "click",
+]
+
+[project.scripts]
+brickify = "brickify.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["brickify*"]
+
+[project.optional-dependencies]
+test = ["nose"]
