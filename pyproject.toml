@@ -11,7 +11,7 @@ authors = [
 description = "Make images look as if they are made out of 1x1 interlocking bricks"
 readme = "README.md"
 license = "MIT"
-requires-python = ">=3.6"
+requires-python = ">=3.11"
 urls = {Homepage = "https://github.com/rene-slowenski/brickify"}
 classifiers = [
     "Development Status :: 4 - Beta",
