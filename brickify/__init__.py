@@ -1,6 +1,4 @@
-from __future__ import unicode_literals
-
-from PIL import Image, ImageSequence
+from PIL import Image
 import sys
 import os
 

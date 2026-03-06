@@ -12,9 +12,6 @@ This module contains the brick palette mappings.
 See README for project details.
 """
 
-from __future__ import division
-
-
 BRICKS = {
     "solid": {
         "024": [0xFE, 0xC4, 0x01],
