@@ -35,7 +35,7 @@ class Create(unittest.TestCase):
         self.create_tmpfile(".png")
         self.assertTrue(
             os.path.exists(FLOWER_PATH),
-            "Could not find image : {0}".format(FLOWER_PATH),
+            f"Could not find image : {FLOWER_PATH}",
         )
 
         brickify.main(FLOWER_PATH, output_path=self.out_path)
@@ -46,7 +46,7 @@ class Create(unittest.TestCase):
         self.create_tmpfile(".gif")
         gif_path = os.path.join(TEST_DIR, "..", "brickify", "assets", "bacon.gif")
         self.assertTrue(
-            os.path.exists(gif_path), "Could not find image : {0}".format(gif_path)
+            os.path.exists(gif_path), f"Could not find image : {gif_path}"
         )
         brickify.main(gif_path, output_path=self.out_path)
         self.assertTrue(os.path.getsize(self.out_path) > 0)
@@ -56,7 +56,7 @@ class Create(unittest.TestCase):
         self.create_tmpfile(".png")
         self.assertTrue(
             os.path.exists(FLOWER_PATH),
-            "Could not find image : {0}".format(FLOWER_PATH),
+            f"Could not find image : {FLOWER_PATH}",
         )
         out = self.out_path
         brickify.main(FLOWER_PATH, output_path=out, palette_mode="solid")
@@ -100,7 +100,7 @@ class Functions(unittest.TestCase):
         self.assertTrue(os.path.dirname(FLOWER_PATH) == os.path.dirname(new_path))
         # Is the generated path unique?
         self.assertFalse(
-            os.path.exists(new_path), "Should not find image : {0}".format(new_path)
+            os.path.exists(new_path), f"Should not find image : {new_path}"
         )
         # Test default file extensions
         self.assertTrue(new_path.endswith("_brick.jpg"))
@@ -127,7 +127,7 @@ class Failures(unittest.TestCase):
         """Test invalid image path"""
         fake_path = os.path.join(TEST_DIR, "fake_image.jpg")
         self.assertFalse(
-            os.path.exists(fake_path), "Should not find image : {0}".format(fake_path)
+            os.path.exists(fake_path), f"Should not find image : {fake_path}"
         )
         self.assertRaises(SystemExit, brickify.main, fake_path)
 
