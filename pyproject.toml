@@ -14,7 +14,7 @@ license = "MIT"
 requires-python = ">=3.11"
 urls = {Homepage = "https://github.com/rene-slowenski/brickify"}
 classifiers = [
-    "Development Status :: 4 - Beta",
+    "Development Status :: 5 - Production/Stable",
     "Programming Language :: Python",
 ]
 dependencies = [
