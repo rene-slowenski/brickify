@@ -29,5 +29,14 @@ brickify = "brickify.cli:main"
 where = ["."]
 include = ["brickify*"]
 
+[tool.setuptools.package-data]
+"brickify.assets.bricks" = ["*"]
+
 [project.optional-dependencies]
-test = ["nose"]
+test = ["pytest"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]

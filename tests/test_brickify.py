@@ -1,7 +1,7 @@
 """Unit tests for brickify"""
 
 # They can be run individually, for example:
-# nosetests tests.test_brickify:Create.test_brickify_image
+# pytest tests/test_brickify.py::Create::test_brickify_image
 import os
 import tempfile
 import unittest
